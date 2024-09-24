@@ -2,14 +2,11 @@ import pickle
 import pandas as pd
 import streamlit as st
 
-teams = ['Royal Challengers Bangalore', 'Kings XI Punjab',
-       'Delhi Daredevils', 'Kolkata Knight Riders', 'Rajasthan Royals',
-       'Mumbai Indians', 'Chennai Super Kings', 'Deccan Chargers',
-       'Pune Warriors', 'Kochi Tuskers Kerala', 'Sunrisers Hyderabad',
-       'Rising Pune Supergiants', 'Gujarat Lions',
-       'Rising Pune Supergiant', 'Delhi Capitals', 'Punjab Kings',
-       'Gujarat Titans', 'Lucknow Super Giants',
-       'Royal Challengers Bengaluru']
+teams = ['Royal Challengers Bengaluru', 'Punjab Kings', 'Delhi Capitals',
+       'Kolkata Knight Riders', 'Rajasthan Royals', 'Mumbai Indians',
+       'Chennai Super Kings', 'Deccan Chargers',
+       'Rising Pune Supergiants', 'Kochi Tuskers Kerala',
+       'Sunrisers Hyderabad', 'Gujarat Titans', 'Lucknow Super Giants']
 
 cities = ['Bangalore', 'Chandigarh', 'Delhi', 'Mumbai', 'Kolkata', 'Jaipur',
        'Hyderabad', 'Chennai', 'Cape Town', 'Port Elizabeth', 'Durban',
@@ -28,7 +25,7 @@ with col1:
        batting_team = st. selectbox("Select a batting team", sorted(teams))
 
 with col2:
-       bowling_team = st. selectbox("Select a bowling team", sorted(teams))
+       bowling_team = st. selectbox("Select a bowling team", sorted([team for team in teams if team!=batting_team]))
 
 selected_city = st.selectbox("Select a City", sorted(cities))
 
